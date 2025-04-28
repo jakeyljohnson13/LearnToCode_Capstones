@@ -23,15 +23,18 @@ public class Home {
         while (!exit) {
             System.out.println("Welcome to the financial tracker home screen.");
             System.out.println("Please select from the following options: ");
-            System.out.println("D: Add deposit\n P: Make Payment\n L: Ledger\n X: Exit");
+            System.out.println("D: Add deposit\n P: Make Payment\n L: Ledger Menu\n X: Exit");
             String input = s.nextLine();
             if (input.equalsIgnoreCase("D")){
                 addDeposit();
             }
-            if (input.equalsIgnoreCase("P")){
+            else if (input.equalsIgnoreCase("P")){
                 makePayment();
             }
-            if (input.equalsIgnoreCase("X")){
+            else if (input.equalsIgnoreCase("L")){
+                //add code to lead to ledger menu
+            }
+            else if (input.equalsIgnoreCase("X")){
                 exit = true;
             }
         }
@@ -82,12 +85,16 @@ public class Home {
         }
 
         //Card Info
+        //Will be used in filewriter
         System.out.println("Please enter the Account Holder's name: ");
         String cardName = s.nextLine();
         System.out.println("Please enter your billing address: ");
         String cardAddy = s.nextLine();
         System.out.println("Please enter the amount for the deposit: ");
         double payAmount = s.nextDouble();
+        if (payAmount > 0){
+            payAmount = -payAmount;
+        }
 
         //Create new variables to be added to new transaction object
         //These are necessary for adding the transaction to the ledger

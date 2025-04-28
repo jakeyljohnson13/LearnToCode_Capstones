@@ -40,8 +40,34 @@ public class Ledger {
         //Will need some constrictions
     }
     public void ledgerScreen(){
+        boolean ledgerExit = false;
+        while (!ledgerExit){
         System.out.println("Welcome to the company ledger.");
-        System.out.println("");
+        System.out.println("Please select from the following options: ");
+        System.out.println("A: All deposits\n D: Deposits\n P: Payments\n R: Reports Menu");
+        String command = s.nextLine();
+        if (command.equalsIgnoreCase("A")){
+            for (Transactions t : Entries){
+                System.out.println(getEntries());
+            }
+        } else if (command.equalsIgnoreCase("D")) {
+            for (Transactions t : Entries){
+                if (t.getAmount() >= 0){
+                    System.out.println(getEntries());
+                }
+            }
+        } else if (command.equalsIgnoreCase("P")) {
+            for (Transactions t : Entries){
+                if (t.getAmount() < 0) {
+                    System.out.println(getEntries());
+                }
+            }
+        } else if (command.equalsIgnoreCase("R")) {
+            //Create Method for reports menu
+        } else if (command.equalsIgnoreCase("H")) {
+            ledgerExit = true;
+        }
+
     }
 
 
@@ -51,7 +77,7 @@ public class Ledger {
 
 
     public void Reports(){
-        boolean ledgerExit = false;
+        boolean reportsExit = false;
         while (!ledgerExit){
             System.out.println("Please choose from the following options: ");
             System.out.println("1: Month To Date\n 2: Previous Month\n 3: Year to date\n 4: Previous Year\n 5: Search by Vendor\n 0: Back");
