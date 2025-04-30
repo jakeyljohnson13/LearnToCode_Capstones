@@ -1,5 +1,6 @@
 package com.pluralsight;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -67,7 +68,7 @@ public class Ledger {
                 System.out.println();
                 System.out.println("Welcome to the company ledger.");
                 System.out.println("Please select from the following options: ");
-                System.out.println("A: All deposits\nD: Deposits\nP: Payments\nR: Reports Menu");
+                System.out.println("A: All deposits\nD: Deposits\nP: Payments\nR: Reports Menu\nH: Home");
                 String command = s.nextLine();
                 if (command.equalsIgnoreCase("A")) {
                     displayAll();
@@ -89,7 +90,8 @@ public class Ledger {
                 System.out.println();
                 System.out.println("Please choose from the following options: ");
                 System.out.println("1: Month To Date\n2: Previous Month\n3: Year to date\n4: Previous Year\n5: Search by Vendor\n0: Back");
-                LocalDate date = LocalDate.now();
+                LocalDate current = LocalDate.now();
+                DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM");
                 int ledgerInput;
                 ledgerInput = s.nextInt();
                 switch (ledgerInput) {
@@ -97,50 +99,69 @@ public class Ledger {
                         reportsExit = true;
                         break;
                     case 1:
+                        String monthSort = current.format(fmt);
                         for (Transactions tr : Entries) {
-                            String monthSort = String.valueOf(date.getMonth());
-                            if (tr.getDate().contains(monthSort)) {
-                                System.out.println(tr);
+                            if (tr.getDate().startsWith(monthSort)) {
+                                System.out.printf("%s|%s|%s|%s|%.2f\n",
+                                        tr.getDate(),
+                                        tr.getTime(),
+                                        tr.getDescription(),
+                                        tr.getVendor(),
+                                        tr.getAmount());
                             }
-
                         }
                         break;
                     case 2:
                         for (Transactions tr : Entries) {
-                            LocalDate currentMonth = LocalDate.from(date.getMonth());
-                            System.out.println(currentMonth);
-                            LocalDate previousMonth = currentMonth.minusMonths(1);
-                            System.out.println(previousMonth);
-                            String lastMonthString = String.valueOf(previousMonth);
-                            System.out.println(lastMonthString);
-                            if (tr.getDate().contains(lastMonthString)) {
-                                System.out.println(tr);
-                            }
-
+                            LocalDate previousMonth = current.minusMonths(1);
+                            String lastMonthString = previousMonth.format(fmt);
+                            if (tr.getDate().startsWith(lastMonthString)) {
+                                System.out.printf("%s|%s|%s|%s|%.2f\n",
+                                        tr.getDate(),
+                                        tr.getTime(),
+                                        tr.getDescription(),
+                                        tr.getVendor(),
+                                        tr.getAmount());                            }
                         }
                         break;
                     case 3:
-                        for (Transactions transactions : Entries) {
-                            String currentYear = String.valueOf(date.getYear());
-                            if (transactions.getDate().contains(currentYear)) {
-                                System.out.println(transactions);
+                        DateTimeFormatter yr = DateTimeFormatter.ofPattern("yyyy");
+                        for (Transactions tr : Entries) {
+                            String currentYear = current.format(yr);
+                            if (tr.getDate().startsWith(currentYear)) {
+                                System.out.printf("%s|%s|%s|%s|%.2f\n",
+                                        tr.getDate(),
+                                        tr.getTime(),
+                                        tr.getDescription(),
+                                        tr.getVendor(),
+                                        tr.getAmount());;
                             }
                         }
                         break;
                     case 4:
-                        for (Transactions t1 : Entries) {
-                            int lastYear = date.getYear() - 1;
+                        for (Transactions tr : Entries) {
+                            int lastYear = current.getYear() - 1;
                             String lastYearString = String.valueOf(lastYear);
-                            if (t1.getDate().contains(lastYearString)) {
-                                System.out.println(t1);
+                            if (tr.getDate().contains(lastYearString)) {
+                                System.out.printf("%s|%s|%s|%s|%.2f\n",
+                                        tr.getDate(),
+                                        tr.getTime(),
+                                        tr.getDescription(),
+                                        tr.getVendor(),
+                                        tr.getAmount());
                             }
                         }
                         break;
                     case 5:
                         String searchVendor = s.nextLine();
-                        for (Transactions t2 : Entries) {
-                            if (searchVendor.equalsIgnoreCase(t2.getVendor())) {
-                                System.out.println(t2);
+                        for (Transactions tr : Entries) {
+                            if (searchVendor.equalsIgnoreCase(tr.getVendor())) {
+                                System.out.printf("%s|%s|%s|%s|%.2f\n",
+                                        tr.getDate(),
+                                        tr.getTime(),
+                                        tr.getDescription(),
+                                        tr.getVendor(),
+                                        tr.getAmount());
                             }
                         }
                         break;
