@@ -36,7 +36,7 @@ public class Main {
                         String oldDesc = parts[2];
                         String oldVen = parts[3];
                         String amtString = parts[4];
-                        Double oldAmt = Double.parseDouble(amtString);
+                        double oldAmt = Double.parseDouble(amtString);
                         Transactions olderStuff = new Transactions(oldDate, oldTime, oldDesc, oldVen, oldAmt);
                         ledger.addTransaction(olderStuff);
                     }

@@ -94,6 +94,7 @@ public class Ledger {
                 DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM");
                 int ledgerInput;
                 ledgerInput = s.nextInt();
+                s.nextLine();
                 switch (ledgerInput) {
                     case 0:
                         reportsExit = true;
@@ -153,6 +154,7 @@ public class Ledger {
                         }
                         break;
                     case 5:
+                        System.out.println("Enter the name of the vendor:");
                         String searchVendor = s.nextLine();
                         for (Transactions tr : Entries) {
                             if (searchVendor.equalsIgnoreCase(tr.getVendor())) {
