@@ -28,7 +28,7 @@ public class Main {
                 br.readLine();
                 String input;
                 while ((input = br.readLine()) != null) {
-                    System.out.println(input);
+                    //System.out.println(input);
                     String[] parts = input.split("\\|");
                     if (parts.length == 5) {
                         String oldDate = parts[0];

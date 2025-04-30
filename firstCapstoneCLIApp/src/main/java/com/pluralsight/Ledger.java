@@ -26,38 +26,38 @@ public class Ledger {
 
 
     public void displayAll() {
-        for (Transactions t : Entries) {
+        for (int i = Entries.size() - 1; i>=0; i--) {
             System.out.printf("%s|%s|%s|%s|%.2f\n",
-                    t.getDate(),
-                    t.getTime(),
-                    t.getDescription(),
-                    t.getVendor(),
-                    t.getAmount());
+                    Entries.get(i).getDate(),
+                    Entries.get(i).getTime(),
+                    Entries.get(i).getDescription(),
+                    Entries.get(i).getVendor(),
+                    Entries.get(i).getAmount());
         }
     }
 
     public void displayDeposits() {
-        for (Transactions t4 : Entries){
-            if (t4.getAmount() >= 0){
+        for (int i = Entries.size() - 1; i>=0; i--){
+            if (Entries.get(i).getAmount() >= 0){
                 System.out.printf("%s|%s|%s|%s|%.2f\n",
-                    t4.getDate(),
-                    t4.getTime(),
-                    t4.getDescription(),
-                    t4.getVendor(),
-                    t4.getAmount());
+                        Entries.get(i).getDate(),
+                        Entries.get(i).getTime(),
+                        Entries.get(i).getDescription(),
+                        Entries.get(i).getVendor(),
+                        Entries.get(i).getAmount());
             }
         }
     }
 
     public void displayPayments() {
-        for (Transactions t5 : Entries) {
-            if (t5.getAmount() < 0) {
+        for (int i = Entries.size() - 1; i>=0; i--) {
+            if (Entries.get(i).getAmount() < 0) {
                 System.out.printf("%s|%s|%s|%s|%.2f\n",
-                        t5.getDate(),
-                        t5.getTime(),
-                        t5.getDescription(),
-                        t5.getVendor(),
-                        t5.getAmount());
+                        Entries.get(i).getDate(),
+                        Entries.get(i).getTime(),
+                        Entries.get(i).getDescription(),
+                        Entries.get(i).getVendor(),
+                        Entries.get(i).getAmount());
             }
         }
 
@@ -68,7 +68,7 @@ public class Ledger {
                 System.out.println();
                 System.out.println("Welcome to the company ledger.");
                 System.out.println("Please select from the following options: ");
-                System.out.println("A: All deposits\nD: Deposits\nP: Payments\nR: Reports Menu\nH: Home");
+                System.out.println("A: All transactions\nD: Deposits\nP: Payments\nR: Reports Menu\nH: Home");
                 String command = s.nextLine();
                 if (command.equalsIgnoreCase("A")) {
                     displayAll();
@@ -101,69 +101,69 @@ public class Ledger {
                         break;
                     case 1:
                         String monthSort = current.format(fmt);
-                        for (Transactions tr : Entries) {
-                            if (tr.getDate().startsWith(monthSort)) {
+                        for (int i = Entries.size() - 1; i>=0;i--) {
+                            if (Entries.get(i).getDate().startsWith(monthSort)) {
                                 System.out.printf("%s|%s|%s|%s|%.2f\n",
-                                        tr.getDate(),
-                                        tr.getTime(),
-                                        tr.getDescription(),
-                                        tr.getVendor(),
-                                        tr.getAmount());
+                                        Entries.get(i).getDate(),
+                                        Entries.get(i).getTime(),
+                                        Entries.get(i).getDescription(),
+                                        Entries.get(i).getVendor(),
+                                        Entries.get(i).getAmount());
                             }
                         }
                         break;
                     case 2:
-                        for (Transactions tr : Entries) {
+                        for (int i = Entries.size() - 1; i>=0;i--) {
                             LocalDate previousMonth = current.minusMonths(1);
                             String lastMonthString = previousMonth.format(fmt);
-                            if (tr.getDate().startsWith(lastMonthString)) {
+                            if (Entries.get(i).getDate().startsWith(lastMonthString)) {
                                 System.out.printf("%s|%s|%s|%s|%.2f\n",
-                                        tr.getDate(),
-                                        tr.getTime(),
-                                        tr.getDescription(),
-                                        tr.getVendor(),
-                                        tr.getAmount());                            }
+                                        Entries.get(i).getDate(),
+                                        Entries.get(i).getTime(),
+                                        Entries.get(i).getDescription(),
+                                        Entries.get(i).getVendor(),
+                                        Entries.get(i).getAmount());                            }
                         }
                         break;
                     case 3:
                         DateTimeFormatter yr = DateTimeFormatter.ofPattern("yyyy");
-                        for (Transactions tr : Entries) {
+                        for (int i = Entries.size() - 1; i>=0;i--) {
                             String currentYear = current.format(yr);
-                            if (tr.getDate().startsWith(currentYear)) {
+                            if (Entries.get(i).getDate().startsWith(currentYear)) {
                                 System.out.printf("%s|%s|%s|%s|%.2f\n",
-                                        tr.getDate(),
-                                        tr.getTime(),
-                                        tr.getDescription(),
-                                        tr.getVendor(),
-                                        tr.getAmount());;
+                                        Entries.get(i).getDate(),
+                                        Entries.get(i).getTime(),
+                                        Entries.get(i).getDescription(),
+                                        Entries.get(i).getVendor(),
+                                        Entries.get(i).getAmount());;
                             }
                         }
                         break;
                     case 4:
-                        for (Transactions tr : Entries) {
+                        for (int i = Entries.size() - 1; i>=0;i--) {
                             int lastYear = current.getYear() - 1;
                             String lastYearString = String.valueOf(lastYear);
-                            if (tr.getDate().contains(lastYearString)) {
+                            if (Entries.get(i).getDate().contains(lastYearString)) {
                                 System.out.printf("%s|%s|%s|%s|%.2f\n",
-                                        tr.getDate(),
-                                        tr.getTime(),
-                                        tr.getDescription(),
-                                        tr.getVendor(),
-                                        tr.getAmount());
+                                        Entries.get(i).getDate(),
+                                        Entries.get(i).getTime(),
+                                        Entries.get(i).getDescription(),
+                                        Entries.get(i).getVendor(),
+                                        Entries.get(i).getAmount());
                             }
                         }
                         break;
                     case 5:
                         System.out.println("Enter the name of the vendor:");
                         String searchVendor = s.nextLine();
-                        for (Transactions tr : Entries) {
-                            if (searchVendor.equalsIgnoreCase(tr.getVendor())) {
+                        for (int i = Entries.size() - 1; i>=0;i--) {
+                            if (searchVendor.equalsIgnoreCase(Entries.get(i).getVendor())) {
                                 System.out.printf("%s|%s|%s|%s|%.2f\n",
-                                        tr.getDate(),
-                                        tr.getTime(),
-                                        tr.getDescription(),
-                                        tr.getVendor(),
-                                        tr.getAmount());
+                                        Entries.get(i).getDate(),
+                                        Entries.get(i).getTime(),
+                                        Entries.get(i).getDescription(),
+                                        Entries.get(i).getVendor(),
+                                        Entries.get(i).getAmount());
                             }
                         }
                         break;

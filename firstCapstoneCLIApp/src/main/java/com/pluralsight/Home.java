@@ -126,7 +126,8 @@ public class Home {
         try {
             FileWriter writer = new FileWriter("transactions.csv", true);
             writer.write(newPayment.getDate() + "|" + newPayment.getTime() + "|" + newPayment.getDescription() + "|" + newPayment.getVendor() + "|" + newPayment.getAmount() + "\n");
-            writer.write("Payment info:\n" + cardName + "\n" + cardAddy + "\n" + cardNum + "\n" + cardPin + "\n");
+            writer.write("Payment info:\nAccount Holder: " + cardName + "\nBilling Address: " + cardAddy + "\nCard Number: \"" + cardNum + "\"\nCard Pin: " + cardPin + "\n");
+            writer.close();
         } catch (IOException e){
             e.printStackTrace();
         }
