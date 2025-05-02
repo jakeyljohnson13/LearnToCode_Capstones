@@ -30,5 +30,4 @@ All screens continue until the user specifies to exit program.
 
 ### Screenshots
 
-
- 
+<img src=Capstone1Screenshot.png height="300">
