@@ -12,13 +12,6 @@ public class Ledger {
     public Ledger() {
         this.Entries = new ArrayList<>();
     }
-
-    public ArrayList<Transactions> getEntries() {
-        return Entries;
-    }
-
-    Transactions prompt = new Transactions("date", "time", "description", "vendor", 0.0);
-
     public void addTransaction(Transactions t) {
         Entries.add(t);
     }

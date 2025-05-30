@@ -13,3 +13,23 @@ Account Holder: Jay
 Billing Address: Here
 "Card Number: ""1234567890132456"""
 Card Pin: 221
+2025-05-01|16:41:39|Misc.|Paper guy|-85.45
+Payment info:
+Account Holder: HelloWorld
+Billing Address: 123 Here St.
+Card Number: "1234567890123456"
+Card Pin: 023
+2025-05-01|17:26:40|Example|Seller|-42.36
+Payment info:
+Account Holder: Hello
+Billing Address: 123 World Ave
+Card Number: "1234567890123456"
+Card Pin: 222
+2025-05-02|09:03:17|Misc|Jon Jon|1920.0
+2025-05-02|10:49:39|misc|Seller|85.0
+2025-05-02|10:51:12|Test|Tester|-95.45
+Payment info:
+Account Holder: Jon Jon
+Billing Address: 123 Here st
+Card Number: "1234567890123456"
+Card Pin: 123
