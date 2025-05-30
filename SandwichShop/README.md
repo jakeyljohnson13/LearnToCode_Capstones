@@ -62,5 +62,22 @@ order. The app uses Object Oriented concepts and designs to provide a customized
 
      -Returns to home screen
 ## Screenshots
+ *Home Screen
+ 
+ ![Home Screen](https://github.com/user-attachments/assets/f4261f00-98aa-4cd4-a235-8510a81b8b44)
 
-  
+ *Order Screen
+ 
+![Order Screen](https://github.com/user-attachments/assets/479b2a1b-690b-4c18-943b-3018175696d7)
+
+*Sandwich Prompts
+
+![Sandwich Prompts](https://github.com/user-attachments/assets/a3717682-2135-46f0-b88c-caf209e81fb8)
+
+*Order Summary
+
+![Order Summary](https://github.com/user-attachments/assets/245efe41-a9e4-44eb-b41f-74f3f60e3b6a)
+
+*Order Receipt
+
+![Order Receipt](https://github.com/user-attachments/assets/ef718d18-424d-4903-bdbc-1af42c65b675)
