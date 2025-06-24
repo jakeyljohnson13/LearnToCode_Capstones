@@ -83,7 +83,7 @@ public class Order {
             boolean addMeat = true;
             Topping baseMeat = null;
             while (addMeat) {
-                System.out.println("Please select from the following meat options:\n1-Steak\n2-Ham\n3-Salami\n4-Roast Beef\n5-Chicken\n6-Bacon\n7-Add Extra Meat\n8-Stop adding meat");
+                System.out.println("Please select from the following meat options (upcharge):\n1-Steak\n2-Ham\n3-Salami\n4-Roast Beef\n5-Chicken\n6-Bacon\n7-Add Extra Meat\n8-Stop adding meat");
 
                 int meatType = scanner.nextInt();
                 scanner.nextLine();
@@ -393,8 +393,8 @@ public class Order {
                 scanner.nextLine();
                 if (moreDrinks == 0) {
                     System.out.println("Moving on!");
+                    exitBeverage = true;
                 }
-                exitBeverage = true;
             }
         }
         public void addChips () {

@@ -1,0 +1,30 @@
+JJ's Sandwiches Order Receipt
+-------------------------------------
+Sandwich with: Wheat bread, Size: 4 Toasted: Yes
+Toppings:
+     Steak (meat, Base, $1.0) --- 1.0
+     Chicken (meat, Extra, $0.5) --- 0.5
+     American (cheese, Base, $0.75) --- 0.75
+     Swiss (cheese, Extra, $0.3) --- 0.3
+     Lettuce (included, Base, $0.0) --- 0.0
+     Onions (included, Base, $0.0) --- 0.0
+     Peppers (included, Base, $0.0) --- 0.0
+     Mayo (included, Base, $0.0) --- 0.0
+     Mustard (included, Base, $0.0) --- 0.0
+Price: $8.05
+Sandwich with: White bread, Size: 12 Toasted: Yes
+Toppings:
+     Bacon (meat, Base, $3.0) --- 3.0
+     Salami (meat, Extra, $1.5) --- 1.5
+     Provolone  (cheese, Base, $2.25) --- 2.25
+     Cheddar (cheese, Extra, $0.8999999999999999) --- 0.8999999999999999
+     Cucumber (included, Base, $0.0) --- 0.0
+     Pickle (included, Base, $0.0) --- 0.0
+     Jalepenos (included, Base, $0.0) --- 0.0
+     Thousand Island (included, Base, $0.0) --- 0.0
+Price: $16.15
+Large Gatorade --- $3.0
+Large Lemonade --- $3.0
+Doritos --- $1.5
+Cheetos --- $1.5
+Your total is $33.2

@@ -28,7 +28,7 @@ public class UserInterface {
         Scanner scanner = new Scanner(System.in);
         Order order = new Order(new ArrayList<>());
         while (!exitOrder) {
-            System.out.println("Please select an option:\n1-Add Sandwich\n2-Add Drink\n3-Add-Chips\n4-Checkout\n5-Cancel Order");
+            System.out.println("Please select an option:\n1-Add Sandwich\n2-Add Drink\n3-Add Chips\n4-Checkout\n5-Cancel Order");
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
@@ -52,9 +52,9 @@ public class UserInterface {
                                     ", Size: " + sandwich.getSize() +
                                     ", Toasted: " + (sandwich.isToasted() ? "Yes" : "No"));
 
-                            System.out.print("Toppings: ");
+                            System.out.print("Toppings:\n");
                             for (Topping topping : sandwich.getToppings()) {
-                                System.out.print(topping + ", ");
+                                System.out.print("---" + topping + "\n");
                             }
                             System.out.println("\nPrice: $" + sandwich.getPrice());
                         } else if (items instanceof Chip) {

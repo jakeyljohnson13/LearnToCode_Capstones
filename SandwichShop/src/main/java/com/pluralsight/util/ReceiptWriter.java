@@ -17,11 +17,11 @@ public class ReceiptWriter {
         try{
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename));
             bufferedWriter.write("JJ's Sandwiches Order Receipt\n");
-            bufferedWriter.write("-------------------------------------");
+            bufferedWriter.write("-------------------------------------\n");
             for (MenuItem item : order.getOrder()){
                 if (item instanceof Sandwich){
                     Sandwich sandwich = (Sandwich) item;
-                    bufferedWriter.write("\nSandwich with: " + sandwich.getBread() + " bread, Size: " + sandwich.getSize() + " Toasted: " + (sandwich.isToasted() ? "Yes\n" : "No\n") );
+                    bufferedWriter.write("Sandwich with: " + sandwich.getBread() + " bread, Size: " + sandwich.getSize() + " Toasted: " + (sandwich.isToasted() ? "Yes\n" : "No\n") );
                     bufferedWriter.write("Toppings:\n");
                     for (Topping topping : sandwich.getToppings()){
                         bufferedWriter.write("     " + topping + " --- " + topping.getPrice(sandwich.getSize()) + "\n");
